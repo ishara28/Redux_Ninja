@@ -3,12 +3,22 @@ import { connect } from "react-redux";
 
 export class Home extends Component {
   render() {
+    console.log(this.props);
+    const { posts } = this.props;
     return (
       <div>
+        
         <h3>Home Component</h3>
+        {posts}
       </div>
     );
   }
 }
 
-export default connect()(Home);
+const mapStateToProps = state => {
+  return {
+    posts: state.posts
+  };
+};
+
+export default connect(mapStateToProps)(Home);
